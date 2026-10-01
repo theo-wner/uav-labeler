@@ -1,0 +1,10 @@
+# NOTE: This file was written by AI (Claude, Anthropic).
+flask
+rasterio
+numpy
+pillow
+pyyaml
+elementpath
+opencv-python
+tifffile
+tqdm

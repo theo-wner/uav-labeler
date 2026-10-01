@@ -1,0 +1,65 @@
+/* NOTE: This code was written by AI (Claude, Anthropic). */
+
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+#map {
+  flex: 1;
+  background: #222;
+}
+
+#map.drawing {
+  cursor: crosshair;
+}
+
+#sidebar {
+  width: 300px;
+  padding: 10px 14px;
+  overflow-y: auto;
+  background: #f4f4f4;
+  border-left: 1px solid #ccc;
+}
+
+h1 { font-size: 18px; margin: 4px 0 10px; }
+h2 { font-size: 14px; margin: 0 0 6px; }
+
+section {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+label { display: block; margin: 4px 0; }
+label input { width: 100%; box-sizing: border-box; }
+label.inline input { width: auto; }
+label input.value { width: 70px; }
+
+.row { display: flex; gap: 8px; }
+.row label { flex: 1; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0; }
+button { padding: 4px 8px; cursor: pointer; }
+button.active { background: #2b7de9; color: white; border-color: #2b7de9; }
+
+.hint { color: #666; font-size: 12px; }
+#status { color: #2a7a2a; font-size: 12px; }
+#cursor { font-family: monospace; font-size: 12px; }
+
+#summary div { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; display: inline-block; }
+
+/* Crop label shown on top of each rectangle */
+.crop-label {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  border: none;
+  box-shadow: none;
+  padding: 1px 4px;
+  font-size: 11px;
+}
+.crop-label::before { display: none; }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- NOTE: This code was written by AI (Claude, Anthropic). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plot Labeler</title>
+  <link rel="stylesheet" href="/static/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="sidebar">
+    <h1>Plot Labeler</h1>
+
+    <section>
+      <h2>Mode</h2>
+      <div class="buttons">
+        <button id="mode-pan" title="Shortcut: P">Pan / select (P)</button>
+        <button id="mode-draw" title="Shortcut: D">Draw rectangle (D)</button>
+        <button id="mode-angle" title="Shortcut: A">Measure angle (A)</button>
+      </div>
+      <p class="hint" id="mode-hint"></p>
+    </section>
+
+    <section>
+      <h2>New rectangles</h2>
+      <label>Crop <input id="new-crop" list="crop-list" placeholder="e.g. wheat"></label>
+      <label>Rotation (deg) <input id="angle" type="number" step="0.1" value="0"></label>
+      <datalist id="crop-list"></datalist>
+    </section>
+
+    <section>
+      <h2>Selection (<span id="selection-count">0</span>)</h2>
+      <label>Crop <input id="selected-crop" list="crop-list"></label>
+      <label>Rotation: <input id="selected-angle-value" class="value" type="number" step="0.1" value="0"> deg
+        <input id="selected-angle" type="range" min="-45" max="45" step="0.1" value="0"></label>
+      <p class="hint">Or drag the orange handle. Several selected rectangles rotate together around their common centre.</p>
+      <div class="buttons">
+        <button id="apply-crop">Apply crop</button>
+        <button id="delete">Delete (Del)</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Split selection into grid</h2>
+      <div class="row">
+        <label>Rows <input id="grid-rows" type="number" min="1" value="2"></label>
+        <label>Columns <input id="grid-cols" type="number" min="1" value="2"></label>
+      </div>
+      <label>Gap between rows: <input id="grid-gap-rows-value" class="value" type="number" min="0" step="0.01" value="0"> m
+        <input id="grid-gap-rows" type="range" min="0" max="5" step="0.01" value="0"></label>
+      <label>Gap between columns: <input id="grid-gap-cols-value" class="value" type="number" min="0" step="0.01" value="0"> m
+        <input id="grid-gap-cols" type="range" min="0" max="5" step="0.01" value="0"></label>
+      <p class="hint">The dashed preview on the map updates while you change these values.</p>
+      <button id="split">Apply grid</button>
+    </section>
+
+    <section>
+      <h2>Plots</h2>
+      <label class="inline"><input id="show-labels" type="checkbox" checked> Show crop labels</label>
+      <div id="summary"></div>
+      <div class="buttons">
+        <button id="undo">Undo (Ctrl+Z)</button>
+      </div>
+    </section>
+
+    <p class="hint">Click a rectangle to select it, Shift+click to add to the selection.
+      Mouse wheel zooms. Every change is saved automatically.</p>
+    <p id="status"></p>
+    <p id="cursor"></p>
+  </div>
+
+  <script src="/static/leaflet/leaflet.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
