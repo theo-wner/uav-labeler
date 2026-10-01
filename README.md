@@ -1,7 +1,7 @@
 <!-- NOTE: This file was written by AI (Claude, Anthropic). -->
-# PhenoRob Labeler
+# UAV Labeler
 
-Label agricultural plots once on the orthophoto, then get a plot mask for every drone image.
+Label agricultural plots once on the orthophoto, then get a plot mask for every uav image.
 
 1. **`server.py`**: draw and label the plots in the browser on the orthophoto → `plot-layouts/plots.yaml`
    (UTM corners with soil height, and the crop).
