@@ -5,7 +5,7 @@ Label agricultural plots once on the orthophoto, then get a plot mask for every 
 
 1. **`server.py`**: draw and label the plots in the browser on the orthophoto → `plot-layouts/plots.yaml`
    (UTM corners with soil height, and the crop).
-2. **`annotate.py`**: project the plots into every drone image → one mask per image.
+2. **`annotate.py`**: project the plots into every uav image → one mask per image.
 
 ## Setup
 
@@ -17,11 +17,16 @@ Expected project layout (exports from Metashape):
 
 ```
 <project>/
-├── images/<name>.tiff          # drone images
+├── images/<name>.tiff          # uav images
 └── export/
     ├── ortho.tif               # orthophoto (tiled, with overviews: gdaladdo -r average ortho.tif)
     ├── cam_intrinsics.xml      # camera calibration (Agisoft XML)
     └── cam_extrinsics.txt      # camera poses (Omega Phi Kappa, with rotation matrix)
+└── processed/
+    └── <project>.files/
+        └── 0\
+            └── 0\
+                └── elevation\  # DEM created by metashape
 ```
 
 ## 1. Label the plots
